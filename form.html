@@ -1,0 +1,81 @@
+<html>
+<head>
+<title> Customer Registration Form </title>
+<script >
+function validate()
+{
+var fn = document.signup.fname.value;
+var ln = document.signup.lname.value;
+var p1 = document.signup.pwrd1.value;
+var p2 = document.signup.pwrd2.value;
+
+if (fn == "")
+{
+alert("Please enter First Name!");
+return false;
+}
+else if(ln == "")
+{
+alert("Please enter Last Name!");
+return false;
+}
+else if(p1 == "")
+{
+alert("Please enter Password!");
+return false;
+}
+else if(p1.length < 6)
+{
+alert("Please enter minimum 6 characters!");
+return false;
+}
+else if(p2 == "")
+{
+alert("Please enter Password again!");
+return false;
+}
+else if(p1 != p2)
+{
+alert("Password Mismatch!");
+return false;
+}
+else if((document.getElementById('m').checked != true)&&(document.getElementById('f').checked != true))
+{
+alert("gender not selected");
+return false;
+}
+else if(document.getElementById("country").value=="-1")
+{
+alert("Country not selected");
+return false;
+}
+else
+{
+alert("Details entered successfully");
+return true;
+}
+}
+</script>
+</head>
+
+<body>
+<form id="inp" name="signup" action="Success.html" onsubmit="return validate()" method="post">
+FIRST NAME: <input type="text" id="fname" name="fname" size="20"><br><br>
+LAST NAME: <input type="text" name="lname" size="20"><br><br>
+PASSWORD1: <input type="password" name="pwrd1" size="20"><br><br>
+PASSWORD2: <input type="password" name="pwrd2" size="20"><br><br>
+GENDER: <br><br>&nbsp;&nbsp;&nbsp;&nbsp;
+<input id="m" type="radio" name="gen" value="male">MALE <br><br>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<input id="f" type="radio" name="gen" value="female">FEMALE<br><br>
+COUNTRY:&nbsp;&nbsp;&nbsp;&nbsp;
+<select name="signup" id="country" >
+ <option value="-1">Select:</option>
+ <option value="Australia">India</option>
+<option value="Africa">NRI</option>
+</select>
+<br><br>
+<input type="submit" value="SUBMIT"/>
+</form>
+</body>
+</html>
